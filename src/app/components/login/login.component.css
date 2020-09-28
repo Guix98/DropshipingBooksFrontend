@@ -55,3 +55,23 @@ input {
 	transition: box-shadow .5s ease;
 }
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+
+text-center {text-align: center;}
+.txt1 {
+    font-family: OpenSans-Regular;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #999999;
+  }
+
+  .txt2 {
+    font-family: OpenSans-Regular;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #4272d7;
+  }
+  
+  .hov1:hover {
+    text-decoration: underline;
+  }
+  
