@@ -1,39 +1,31 @@
-<head>
-    <title>sistema de login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    
-
-
-<link rel="stylesheet" type="text/css" href="login.component.css">
-</head>
-
-<div class="login">
-	<h1>Login</h1>
-    <form method="post">
-    	<input type="text" name="u" placeholder="Username" required="required" />
-        <input type="password" name="p" placeholder="Password" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Ingresar</button>
-        
-        
-        <div class="text-center p-t-45 p-b-4">
-            <span class="txt1">
-                Se olvidó su
-            </span>
-
-            <a routerLink="/Registro" class="txt2 hov1">
-                Username / Password?
-            </a>
-        </div>
-
-        <div class="text-center">
-            <span class="txt1">
-               ¿Crear cuenta?
-            </span>
-
-            <a routerLink="/gestion-usuario" class="txt2 hov1">
-                Aquí
-                
-            </a>
-        </div>
-    </form>
+<div class="card text-white bg-dark">
+    <article class="card-body">
+        <a href="" class="float-right btn btn-outline-primary">Sign up</a>
+        <h4 class="card-title mb-4 mt-1">Sign in</h4>
+        <form>
+            <div class="form-group">
+                <label>Your email</label>
+                <input name="" class="form-control" placeholder="Email" type="email">
+            </div>
+            <!-- form-group// -->
+            <div class="form-group">
+                <a class="float-right" href="#">Forgot?</a>
+                <label>Your password</label>
+                <input class="form-control" placeholder="******" type="password">
+            </div>
+            <!-- form-group// -->
+            <div class="form-group">
+                <div class="checkbox">
+                    <label> <input type="checkbox"> Save password </label>
+                </div>
+                <!-- checkbox .// -->
+            </div>
+            <!-- form-group// -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+            </div>
+            <!-- form-group// -->
+        </form>
+    </article>
 </div>
+<!-- card.// -->

@@ -4,10 +4,13 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from './components/login/login.component';
 import { ProductComponent } from './components/product/product.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { RegistryComponent } from './components/registry/registry.component';
 
 export const ROUTES: Routes = [
     { path: 'home', component: HomepageComponent },
     { path: 'product/:id', component: ProductComponent },
+    { path: 'registry', component: RegistryComponent },
+    { path: 'login', component: LoginComponent },
     { path: '', component: HomepageComponent },
     { path: '**', component: LoginComponent },
 
