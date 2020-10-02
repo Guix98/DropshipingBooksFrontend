@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map  } from 'rxjs/operators';
 import { User } from '../models/user';
+import { htmlAstToRender3Ast } from '@angular/compiler/src/render3/r3_template_transform';
+import { tokenName } from '@angular/compiler';
+import { Observable } from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,11 +30,30 @@ export class BooksService {
       'Content-Type': 'application/json'
     });
     const body = JSON.stringify(user);
-    console.log(body);
-    return this.http.post(this.localurl + 'security/login', body, {headers}).pipe(map((data:any)=>{
-      return data.message;
+    return this.http.post(this.localurl + 'security/login', body, {headers}).pipe(map((data: any) => {
+      return data;
     }));
 
+  }
+  getBooks(token): Observable<any> {
+    let headers = new HttpHeaders().set('Authorization', token);
+    console.log(token);
+    
+    return this.http.post('http://localhost:8008/api/v1/inicio', { headers: headers });
+  }
+  getToken(){
+      return localStorage.getItem('token');
+    }
+  getRefresh(){
+      return localStorage.getItem('refresh');
+    }
+  setauth(token) {
+
+        localStorage.setItem('token', 'bearer ' + token);
+    }
+  setref(refresh) {
+
+      localStorage.setItem('refresh', refresh);
   }
 
 }

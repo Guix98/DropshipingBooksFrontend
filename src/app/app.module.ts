@@ -14,7 +14,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistryComponent } from './components/registry/registry.component';
 import { PopoverModule } from "ngx-smart-popover";
-import { PopregistryComponent } from './components/popregistry/popregistry.component';
+
 
 
 @NgModule({
@@ -25,8 +25,7 @@ import { PopregistryComponent } from './components/popregistry/popregistry.compo
     ProductComponent,
     SidebarComponent,
     LoginComponent,
-    RegistryComponent,
-    PopregistryComponent
+    RegistryComponent
   ],
   imports: [
     BrowserModule,

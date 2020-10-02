@@ -12,6 +12,7 @@ export class LoginComponent  {
   isLogin: boolean;
   alert: boolean;
   user = new User();
+  token: string;
   constructor(private book: BooksService,
               private router: Router) {
     this.isLogin = true;
@@ -20,10 +21,15 @@ export class LoginComponent  {
    login(username: string, password: string){
      this.user.username = username;
      this.user.password = password;
-     this.book.postLogin(this.user).subscribe((respuesta: string) => {
-      console.log(respuesta);
-      if (respuesta === 'Authentication OK') {
-        this.router.navigate(['/']);
+     this.book.postLogin(this.user).subscribe((respuesta: any) => {
+
+
+      if (respuesta.message === 'Authentication OK') {
+       this.book.setauth(respuesta.authentication);
+       this.book.setref(respuesta.refresh);
+
+
+       this.router.navigate(['/']);
       }
 
 
