@@ -13,7 +13,9 @@ import { ProductComponent } from './components/product/product.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistryComponent } from './components/registry/registry.component';
-import { PopoverModule } from "ngx-smart-popover";
+import { DomseguroPipe } from './pipes/domseguro.pipe';
+
+import { InitformComponent } from './components/initform/initform.component';
 
 
 
@@ -25,12 +27,13 @@ import { PopoverModule } from "ngx-smart-popover";
     ProductComponent,
     SidebarComponent,
     LoginComponent,
-    RegistryComponent
+    RegistryComponent,
+    DomseguroPipe,
+    InitformComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    PopoverModule,
     RouterModule.forRoot(ROUTES, {useHash: true})
   ],
   providers: [],

@@ -5,6 +5,8 @@ import { User } from '../models/user';
 import { htmlAstToRender3Ast } from '@angular/compiler/src/render3/r3_template_transform';
 import { tokenName } from '@angular/compiler';
 import { Observable } from 'rxjs/internal/Observable';
+import { Client } from '../models/client';
+import { Person } from '../models/person';
 @Injectable({
   providedIn: 'root'
 })
@@ -39,7 +41,7 @@ export class BooksService {
     let headers = new HttpHeaders().set('Authorization', token);
     console.log(token);
     
-    return this.http.post('http://localhost:8008/api/v1/inicio', { headers: headers });
+    return this.http.post('http://localhost:8008/api/v1/inicio', {},{  headers });
   }
   getToken(){
       return localStorage.getItem('token');
@@ -55,5 +57,32 @@ export class BooksService {
 
       localStorage.setItem('refresh', refresh);
   }
+  postRegister(client: Client){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const body = JSON.stringify(client);
+    return this.http.post(this.localurl + 'register', body, {headers}).pipe(map((data: any) => {
+      return data;
+    }));
+  }
+  postFinalRegister(person: Person){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const body = JSON.stringify(person);
+    return this.http.post(this.localurl + 'registerperson', body, {headers}).pipe(map((data: any) => {
+      return data;
+    }));
+  }
+  getCategory(token:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    }).set('Authorization', token);
+    return this.http.get(this.localurl + 'category', {headers}).pipe(map((data: any) => {
+      return data;
+    }));
+  }
+  }
 
-}
+

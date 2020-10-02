@@ -1,7 +1,6 @@
 <h1 class="mt-5">
     Shop Name</h1>
 <div class="list-group">
-    <a href="#" class="list-group-item">Category 1</a>
-    <a href="#" class="list-group-item">Category 2</a>
-    <a href="#" class="list-group-item">Category 3</a>
+    <a href="#" *ngFor="let categoria of categories" class="list-group-item">{{categoria.category_name}}</a>
+
 </div>

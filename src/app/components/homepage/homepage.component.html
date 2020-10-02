@@ -27,9 +27,9 @@
 
 <div class="row">
 
-    <div class="col-lg-4 col-md-6 mb-4">
-        <div *ngFor="let libro of libros" class="card h-100">
-            <a href="#"><img class="card-img-top" src="{{libro.image}}" alt=""></a>
+    <div *ngFor="let libro of libros" class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://p.kindpng.com/picc/s/50-505580_top-83-books-clip-art-transparent-background-books.png" alt=""></a>
             <div class="card-body">
                 <h4 class="card-title">
                     <a href="#">{{libro.product_name}}</a>
@@ -38,7 +38,7 @@
                 <p class="card-text">{{libro.product_description}}</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                <small class="text-muted">{{libro.author}}</small>
             </div>
         </div>
     </div>

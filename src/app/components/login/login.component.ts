@@ -39,6 +39,10 @@ export class LoginComponent  {
        this.alert = true;
 
      });
+
    }
+   register(){
+    this.router.navigate(['../registry']);
+  }
 
 }
