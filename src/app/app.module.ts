@@ -13,6 +13,9 @@ import { ProductComponent } from './components/product/product.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistryComponent } from './components/registry/registry.component';
+import { PopoverModule } from "ngx-smart-popover";
+import { PopregistryComponent } from './components/popregistry/popregistry.component';
+
 
 @NgModule({
   declarations: [
@@ -22,11 +25,13 @@ import { RegistryComponent } from './components/registry/registry.component';
     ProductComponent,
     SidebarComponent,
     LoginComponent,
-    RegistryComponent
+    RegistryComponent,
+    PopregistryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    PopoverModule,
     RouterModule.forRoot(ROUTES, {useHash: true})
   ],
   providers: [],
