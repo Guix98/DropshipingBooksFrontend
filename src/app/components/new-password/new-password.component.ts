@@ -5,11 +5,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './new-password.component.html',
   styleUrls: ['./new-password.component.css']
 })
-export class NewPasswordComponent implements OnInit {
+export class NewPasswordComponent  {
+  alerta: boolean;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.alerta=false;
+   }
+  cont(password1:string , password2:string){
+    if (password1 != password2) {
+      this.alerta=true;
+    }
   }
+
+
 
 }
