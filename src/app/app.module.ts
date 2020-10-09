@@ -13,6 +13,9 @@ import { ProductComponent } from './components/product/product.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistryComponent } from './components/registry/registry.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { FindAccountComponent } from './components/find-account/find-account.component';
+
 import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 import { InitformComponent } from './components/initform/initform.component';
@@ -28,6 +31,8 @@ import { InitformComponent } from './components/initform/initform.component';
     SidebarComponent,
     LoginComponent,
     RegistryComponent,
+    NewPasswordComponent,
+    FindAccountComponent,
     DomseguroPipe,
     InitformComponent
   ],
