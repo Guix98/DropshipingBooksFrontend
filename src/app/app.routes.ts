@@ -8,6 +8,7 @@ import { RegistryComponent } from './components/registry/registry.component';
 import { InitformComponent } from './components/initform/initform.component';
 import { FindAccountComponent } from './components/find-account/find-account.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { AdminContactsComponent } from './components/admin-contacts/admin-contacts.component';
 
 
 
@@ -18,6 +19,8 @@ export const ROUTES: Routes = [
     { path: 'find', component: NewPasswordComponent},
     { path: 'registry/:username', component: RegistryComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'product', component: ProductComponent },
+    { path: 'contacts', component: AdminContactsComponent },
     { path: '', component: HomepageComponent },
     { path: '**', component: LoginComponent },
 

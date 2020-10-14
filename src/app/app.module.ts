@@ -19,6 +19,8 @@ import { FindAccountComponent } from './components/find-account/find-account.com
 import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 import { InitformComponent } from './components/initform/initform.component';
+import { AdminContactsComponent } from './components/admin-contacts/admin-contacts.component';
+import { ContactCardComponent } from './components/contact-card/contact-card.component';
 
 
 
@@ -34,7 +36,9 @@ import { InitformComponent } from './components/initform/initform.component';
     NewPasswordComponent,
     FindAccountComponent,
     DomseguroPipe,
-    InitformComponent
+    InitformComponent,
+    AdminContactsComponent,
+    ContactCardComponent
   ],
   imports: [
     BrowserModule,
