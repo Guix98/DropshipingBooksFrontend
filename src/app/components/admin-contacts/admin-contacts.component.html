@@ -1,47 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Buscar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            <button class="btn btn-info my-2 my-sm-0" type="submit">Nuevo proveedor</button>
+        </form>
+    </div>
+</nav>
+
 <table class="table table-dark">
     <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
+
             <th scope="col">Empresa</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td><button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ContactModal">Mark</button></td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-    </tbody>
-</table>
-<!-- Modal -->
-<div class="modal fade" id="ContactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-black-50" id="exampleModalLabel">Informacion de contacto</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <tr *ngFor="let proveedor of providers">
+            <th scope="row">{{proveedor.provider_id}}</th>
+            <td><button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ContactModal">Proveedor {{proveedor.provider_id}}</button></td>
+
+            <td>{{proveedor.provider_name}}</td>
+            <!-- Modal -->
+            <div class="modal fade" id="ContactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-black-50" id="exampleModalLabel">Informacion de contacto: {{proveedor.provider_name}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
-            </div>
-            <div class="modal-body text-black-50">
-                <h6>Aqui van los datos</h6>
-            </div>
+                        </div>
+                        <div class="modal-body text-black-50">
+                            <ul>
 
-        </div>
-    </div>
-</div>
+                                <li>Email: {{proveedor.email}}</li>
+                                <li>Teléfonos: {{proveedor.phone}}</li>
+                                <li>{{proveedor.phone2}}</li>
+                                <li>Direccion: {{proveedor.provider_zone}}</li>
+                                <li>{{proveedor.provider_street}}</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </tr>
+
+    </tbody>
+</table>

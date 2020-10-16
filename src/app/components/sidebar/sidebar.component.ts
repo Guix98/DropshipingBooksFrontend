@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../services/books.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,7 +9,8 @@ import { BooksService } from '../../services/books.service';
 })
 export class SidebarComponent {
 categories:any[];
-  constructor(private book: BooksService) { 
+  constructor(private book: BooksService,
+              private router: Router) { 
     this.book.getCategory(book.getToken()).subscribe((data: any) => {
       this.categories = data;
       console.log(this.categories);
@@ -19,6 +21,14 @@ categories:any[];
     });
   console.log('1');
   
+  }
+  gotocat(cat: string){
+    console.log(cat);
+    
+    this.router.navigate(['cat/', cat]);
+    
+    
+    
   }
 
  

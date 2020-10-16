@@ -1,6 +1,6 @@
 <h1 class="mt-5">
     Shop Name</h1>
 <div class="list-group">
-    <a href="#" *ngFor="let categoria of categories" class="list-group-item">{{categoria.category_name}}</a>
+    <a (click)="gotocat(categoria.category_name)" *ngFor="let categoria of categories" class="list-group-item" #category>{{categoria.category_name}}</a>
 
 </div>

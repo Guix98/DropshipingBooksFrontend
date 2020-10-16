@@ -29,7 +29,7 @@ export class LoginComponent  {
        this.book.setref(respuesta.refresh);
 
 
-       this.router.navigate(['/']);
+       this.router.navigate(['/home']);
       }
 
 

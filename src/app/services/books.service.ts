@@ -38,11 +38,25 @@ export class BooksService {
 
   }
   getBooks(token): Observable<any> {
-    let headers = new HttpHeaders().set('Authorization', token);
-    console.log(token);
+    const headers = new HttpHeaders().set('Authorization', token);
     
-    return this.http.post('http://localhost:8008/api/v1/inicio', {},{  headers });
+
+    return this.http.post('http://localhost:8008/api/v1/inicio', {}, {  headers });
   }
+  getBooksByCat(token, cat: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', token);
+    
+
+    return this.http.post('http://localhost:8008/api/v1/products', {'orderName': cat}, {  headers });
+  }
+
+  getOneBook(token, name: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', token);
+    
+
+    return this.http.post('http://localhost:8008/api/v1/book', {'orderName': name}, {  headers });
+  }
+
   getToken(){
       return localStorage.getItem('token');
     }
@@ -75,7 +89,7 @@ export class BooksService {
       return data;
     }));
   }
-  getCategory(token:string){
+  getCategory(token: string){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     }).set('Authorization', token);
@@ -83,6 +97,69 @@ export class BooksService {
       return data;
     }));
   }
+  getProviders(token:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    }).set('Authorization', token);
+    return this.http.get(this.localurl + 'provider', {headers}).pipe(map((data: any) => {
+      return data;
+    }));
+  }
+  getOrders(token:string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    }).set('Authorization', token);
+    return this.http.get(this.localurl + 'order', {headers}).pipe(map((data: any) => {
+      return data;
+    }));
+  }
+  getOneProvider(token, id: number): Observable<any> {
+   let idx = id.toString;
+   console.log(idx);
+   
+    const headers = new HttpHeaders().set('Authorization', token);
+    
+
+    return this.http.post('http://localhost:8008/api/v1/provedor', {'orderName': idx}, {  headers });
+  }
+  getOneOrder(token, id: string): Observable<any> {
+        
+     const headers = new HttpHeaders().set('Authorization', token);
+     
+ 
+     return this.http.post('http://localhost:8008/api/v1/order/id', {'orderName': id}, {  headers });
+   }
+   requestReset(email: string): Observable<any> {
+
+    const headers = new HttpHeaders();
+
+    return this.http.post('http://localhost:8008/api/v1/resetpasswordrequest', {'email': email}, {  headers });
+  }
+  changePassword(email:string, password:string): Observable<any> {
+    
+   
+     const headers = new HttpHeaders();
+     
+ 
+     return this.http.post('http://localhost:8008/api/v1/resetpassword', {'email': email, 'password': password}, {  headers });
+   }
+   postNewProvider(name: string, zone: string, street: string, email: string, phone: string, phone2: string): Observable<any> {
+    
+   
+    const headers = new HttpHeaders();
+    const body = {
+        "provider_name" : name,
+        "provider_zone" : zone,
+        "provider_street" : street,
+        "email" : email,
+        "phone" : phone,
+        "phone2" : phone2,
+    }
+    
+
+    return this.http.post('http://localhost:8008/api/v1/registerprovider', body, {  headers });
+  }
+
   }
 
 

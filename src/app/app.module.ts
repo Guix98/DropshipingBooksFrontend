@@ -21,6 +21,10 @@ import { DomseguroPipe } from './pipes/domseguro.pipe';
 import { InitformComponent } from './components/initform/initform.component';
 import { AdminContactsComponent } from './components/admin-contacts/admin-contacts.component';
 import { ContactCardComponent } from './components/contact-card/contact-card.component';
+import { RegisterProvComponent } from './components/register-prov/register-prov.component';
+import { CategoryComponent } from './components/category/category.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
 
 
 
@@ -38,12 +42,16 @@ import { ContactCardComponent } from './components/contact-card/contact-card.com
     DomseguroPipe,
     InitformComponent,
     AdminContactsComponent,
-    ContactCardComponent
+    ContactCardComponent,
+    RegisterProvComponent,
+    CategoryComponent,
+    PedidosComponent,
+    MenuAdminComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES, {useHash: true})
+    RouterModule.forRoot(ROUTES, {useHash: true, onSameUrlNavigation: 'reload', })
   ],
   providers: [],
   bootstrap: [AppComponent]
