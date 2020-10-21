@@ -39,22 +39,22 @@ export class BooksService {
   }
   getBooks(token): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', token);
-    
+
 
     return this.http.post('http://localhost:8008/api/v1/inicio', {}, {  headers });
   }
   getBooksByCat(token, cat: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', token);
-    
 
-    return this.http.post('http://localhost:8008/api/v1/products', {'orderName': cat}, {  headers });
+
+    return this.http.post('http://localhost:8008/api/v1/products', {orderName: cat}, {  headers });
   }
 
   getOneBook(token, name: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', token);
-    
 
-    return this.http.post('http://localhost:8008/api/v1/book', {'orderName': name}, {  headers });
+
+    return this.http.post('http://localhost:8008/api/v1/book', {orderName: name}, {  headers });
   }
 
   getToken(){
@@ -97,7 +97,7 @@ export class BooksService {
       return data;
     }));
   }
-  getProviders(token:string){
+  getProviders(token: string){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     }).set('Authorization', token);
@@ -105,7 +105,7 @@ export class BooksService {
       return data;
     }));
   }
-  getOrders(token:string){
+  getOrders(token: string){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     }).set('Authorization', token);
@@ -114,52 +114,62 @@ export class BooksService {
     }));
   }
   getOneProvider(token, id: number): Observable<any> {
-   let idx = id.toString;
+   const idx = id.toString;
    console.log(idx);
-   
-    const headers = new HttpHeaders().set('Authorization', token);
-    
 
-    return this.http.post('http://localhost:8008/api/v1/provedor', {'orderName': idx}, {  headers });
+   const headers = new HttpHeaders().set('Authorization', token);
+
+
+   return this.http.post('http://localhost:8008/api/v1/provedor', {orderName: idx}, {  headers });
   }
   getOneOrder(token, id: string): Observable<any> {
-        
+
      const headers = new HttpHeaders().set('Authorization', token);
-     
- 
-     return this.http.post('http://localhost:8008/api/v1/order/id', {'orderName': id}, {  headers });
+
+
+     return this.http.post('http://localhost:8008/api/v1/order/id', {orderName: id}, {  headers });
    }
    requestReset(email: string): Observable<any> {
 
     const headers = new HttpHeaders();
 
-    return this.http.post('http://localhost:8008/api/v1/resetpasswordrequest', {'email': email}, {  headers });
+    return this.http.post('http://localhost:8008/api/v1/resetpasswordrequest', {email: email}, {  headers });
   }
-  changePassword(email:string, password:string): Observable<any> {
-    
-   
+  changePassword(email: string, password: string): Observable<any> {
+
+
      const headers = new HttpHeaders();
-     
- 
-     return this.http.post('http://localhost:8008/api/v1/resetpassword', {'email': email, 'password': password}, {  headers });
+
+
+     return this.http.post('http://localhost:8008/api/v1/resetpassword', {email: email, password: password}, {  headers });
    }
    postNewProvider(name: string, zone: string, street: string, email: string, phone: string, phone2: string): Observable<any> {
-    
-   
+
+
     const headers = new HttpHeaders();
     const body = {
-        "provider_name" : name,
-        "provider_zone" : zone,
-        "provider_street" : street,
-        "email" : email,
-        "phone" : phone,
-        "phone2" : phone2,
-    }
-    
+        'provider_name' : name,
+        'provider_zone' : zone,
+        'provider_street' : street,
+        'email' : email,
+        'phone' : phone,
+        'phone2' : phone2,
+    };
+
 
     return this.http.post('http://localhost:8008/api/v1/registerprovider', body, {  headers });
   }
 
   }
+
+export interface Contact{
+        'provider_id': number;
+        'provider_name': string;
+        'provider_zone': string;
+        'provider_street': string;
+        'email': string;
+        'phone': string;
+        'phone2': string;
+}
 
 
