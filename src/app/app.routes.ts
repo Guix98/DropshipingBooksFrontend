@@ -13,6 +13,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { RegisterProvComponent } from './components/register-prov/register-prov.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 
@@ -29,6 +30,7 @@ export const ROUTES: Routes = [
     { path: 'contacts', component: AdminContactsComponent },
     { path: 'orders', component: PedidosComponent },
     { path: 'mainmenu', component: MenuAdminComponent },
+    { path: 'payment', component: PaymentComponent },
     { path: '', component: LoginComponent },
     { path: '**', component: LoginComponent },
     //{ path: 'oldPath', redirectTo: '' },

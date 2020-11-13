@@ -7,6 +7,7 @@ import { tokenName } from '@angular/compiler';
 import { Observable } from 'rxjs/internal/Observable';
 import { Client } from '../models/client';
 import { Person } from '../models/person';
+import { PaymentIntent } from '../models/payment-intent';
 @Injectable({
   providedIn: 'root'
 })
@@ -158,6 +159,11 @@ export class BooksService {
 
 
     return this.http.post('http://localhost:8008/api/v1/registerprovider', body, {  headers });
+  }
+
+  pagar(payment:PaymentIntent):Observable<String>{
+    const headers = new HttpHeaders();
+    return this.http.post<string>(this.localurl+'payment/paymentIntent', payment, {headers});
   }
 
   }
