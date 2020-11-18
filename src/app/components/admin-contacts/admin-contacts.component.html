@@ -29,6 +29,15 @@
             <td><button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ContactModal">Proveedor {{proveedor.provider_id}}</button></td>
 
             <td>{{proveedor.provider_name}}</td>
+            <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="option1" checked> Editar
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option2"> Eliminar
+                </label>
+            
+              </div></td>
             <!-- Modal -->
             <div class="modal fade" id="ContactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
