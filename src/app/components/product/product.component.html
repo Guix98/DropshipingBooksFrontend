@@ -1,34 +1,29 @@
 <div class="col-lg-9">
 
     <div class="card mt-4">
-        <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+        <img class="card-img-top img-fluid" src="{{libro.image}}" alt="">
         <div class="card-body">
             <h3 class="card-title">{{libro.product_name}}</h3>
             <h4>{{libro.unit_price| currency}}</h4>
             <p class="card-text">{{libro.product_description}}</p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
-            <a href="#" class="btn btn-success">Agregar al Carrito</a>
-        </div>
-    </div>
-    <!-- /.card -->
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Cantidad</label>
+                <select class="form-control" id="exampleFormControlSelect1" #qtty>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-success" (click)="addCart(libro,qtty.value)">Agregar al Carrito</button>
+            <div *ngIf="add" class="alert alert-success" role="alert">
+                Se ha añadido el producto al carrito
+            </div>
 
-    <div class="card card-outline-secondary my-4">
-        <div class="card-header">
-            Product Reviews
-        </div>
-        <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <a href="#" class="btn btn-success">Leave a Review</a>
         </div>
     </div>
-    <!-- /.card -->
+
 
 </div>

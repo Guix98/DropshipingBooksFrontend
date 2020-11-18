@@ -6,9 +6,17 @@ import { guser } from '../models/g-user';
   providedIn: 'root'
 })
 export class GlobaldataService {
-
-  constructor() { }
   carrito: Cart[];
   logus: guser;
+  total: number;
+
+  constructor() {
+    this.carrito = [];
+    this.total = 0;
+   }
+  cambiarTotal(num: number){
+    this.total = this.total + num;
+  }
+
 
 }

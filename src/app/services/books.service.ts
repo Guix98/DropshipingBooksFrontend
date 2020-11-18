@@ -165,6 +165,14 @@ export class BooksService {
     const headers = new HttpHeaders();
     return this.http.post<string>(this.localurl+'payment/paymentIntent', payment, {headers});
   }
+  confirmar(id:string):Observable<String>{
+    const headers = new HttpHeaders();
+    return this.http.post<string>(this.localurl+'payment/confirm/'+id, {headers});
+  }
+  cancelar(id:string):Observable<String>{
+    const headers = new HttpHeaders();
+    return this.http.post<string>(this.localurl+'payment/cancel/'+id, {headers});
+  }
 
   }
 

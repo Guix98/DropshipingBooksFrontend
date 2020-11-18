@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { StripeService, StripeCardComponent } from 'ngx-stripe';
 import { PaymentIntent } from '../../models/payment-intent';
 import { BooksService } from '../../services/books.service';
+import { GlobaldataService } from '../../services/globaldata.service';
+import { Router } from '@angular/router';
 import {
   StripeCardElementOptions,
   StripeElementsOptions
@@ -15,6 +17,10 @@ import {
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
+  total: number;
+  pagodata:any;
+  message: string;
+  btn: boolean;
 
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
  
@@ -39,7 +45,16 @@ export class PaymentComponent implements OnInit {
  
   stripeTest: FormGroup;
  
-  constructor(private fb: FormBuilder, private stripeService: StripeService, private books:BooksService) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+     private stripeService: StripeService,
+     private books:BooksService,
+    private globaldataService:GlobaldataService) {
+      this.message = "";
+      this.btn= false;
+      this.total=this.globaldataService.total;
+    }
  
   ngOnInit(): void {
    this.stripeTest = this.fb.group({
@@ -55,12 +70,13 @@ export class PaymentComponent implements OnInit {
         if (result.token) {
           const pago:PaymentIntent = {
             token: result.token.id,
-            amount: 35000,
+            amount: this.total*100,
             currency: 'USD',
-            description: 'aqui va la descripcion del producto'
+            description: 'orden de compra n'
           };
           this.books.pagar(pago).subscribe((data:any)=>{
             console.log(data);
+            this.pagodata=data;
           })
 
           console.log(result.token.id);
@@ -69,6 +85,28 @@ export class PaymentComponent implements OnInit {
           console.log(result.error.message);
         }
       });
+  }
+  confirm(){
+    
+    this.books.confirmar(this.pagodata.id).subscribe();
+    this.message = "Pago Realizado con éxito!";
+    this.btn = true;
+    this.globaldataService.carrito=[];
+    console.log(this.globaldataService.carrito);
+    
+
+
+  }
+  cancel(){
+    this.books.cancelar(this.pagodata.id).subscribe();
+    this.message = "El pago se ha cancelado, será redirigido a la página principal";
+    this.btn = true;
+    this.globaldataService.carrito=[];
+    
+    
+  }
+  redirect(){
+    this.router.navigate(['home']);
   }
 
 }

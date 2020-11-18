@@ -36,6 +36,10 @@ export class CategoryComponent implements OnInit{
 
   });
   }
+  producto(name:string){
+    this.router.navigate(['product/', name]);
+
+  }
 
 
 }
