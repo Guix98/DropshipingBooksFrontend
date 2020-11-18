@@ -28,6 +28,7 @@ import { MenuAdminComponent } from './components/menu-admin/menu-admin.component
 import { PaymentComponent } from './components/payment/payment.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderComponent } from './components/order/order.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 
@@ -51,7 +52,8 @@ import { OrderComponent } from './components/order/order.component';
     PedidosComponent,
     MenuAdminComponent,
     PaymentComponent,
-    OrderComponent
+    OrderComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

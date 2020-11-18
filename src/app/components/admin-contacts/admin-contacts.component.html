@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" formGroup="">
             <input (keyup)="buscarProveedores(termino.value)" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #termino>
             <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="buscarProveedores(termino.value)">Buscar</button>
             <button class="btn btn-info m-2 my-sm-0 float-right" type="button" routerLink="addprov">Nuevo proveedor</button>

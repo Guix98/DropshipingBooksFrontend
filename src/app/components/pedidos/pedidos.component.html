@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" [formGroup]="">
             <input (keyup)="buscarPedidos(termino.value)" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #termino>
             <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="buscarPedidos(termino.value)">Buscar</button>
 
@@ -19,18 +19,16 @@
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Fecha</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Email</th>
+
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let proveedor of orders">
             <th scope="row">{{proveedor.order_id}}</th>
-            <td><button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ContactModal" (click)="loadModal(proveedor.order_id)">{{proveedor.username}}</button></td>
+            <td><button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ContactModal" (click)="loadModal(proveedor.order_id)">{{proveedor.userid}}</button></td>
 
             <td>{{proveedor.date}}</td>
-            <td>{{proveedor.phone_number}}</td>
-            <td>{{proveedor.email}}</td>
+
             <!-- Modal -->
             <div class="modal fade" id="ContactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

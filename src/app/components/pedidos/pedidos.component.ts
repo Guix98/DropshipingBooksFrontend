@@ -20,6 +20,8 @@ export class PedidosComponent implements OnInit {
   ngOnInit(): void {
     this.books.getOrders(this.books.getToken()).subscribe((data: any) => {
       this.orders = data;
+      console.log(data);
+      
       this.ordersAux = data;
     });
   }
