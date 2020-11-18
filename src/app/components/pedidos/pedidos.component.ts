@@ -11,8 +11,10 @@ export class PedidosComponent implements OnInit {
   orders: any[];
   ordersArr: any[] = [];
   ordersAux: any[];
-  order: any = '';
+  order: any[];
+  userdata: any ='';
   idx = '';
+  total = 0;
   constructor(private books: BooksService) {
 
 }
@@ -20,18 +22,25 @@ export class PedidosComponent implements OnInit {
   ngOnInit(): void {
     this.books.getOrders(this.books.getToken()).subscribe((data: any) => {
       this.orders = data;
-      console.log(data);
+      
       
       this.ordersAux = data;
     });
   }
   loadModal(id: number){
-    this.idx = id.toString();
-    this.books.getOneOrder(this.books.getToken(), this.idx).subscribe((data: any) => {
-      this.order = data[0];
-      console.log(this.order.product_name);
-
+      
+      this.books.getDetailedOrder(this.books.getToken(), 3).subscribe((data: any) => {
+      this.order = data;
+      this.userdata=data[0];
+      console.log(this.userdata.username);
+      
+      console.log(this.order);
+      for (const prod in this.order) {
+        this.total=this.total+this.order[prod].total;
+      }
     });
+
+    
   }
   buscarPedidos(termino: string){
     this.orders = this.ordersAux;

@@ -34,18 +34,44 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title text-black-50" id="exampleModalLabel">Informacion de contacto: {{proveedor.username}}</h5>
+                            <h5 class="modal-title text-black-50" id="exampleModalLabel">Pedidos del usuario: {{userdata.username}}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
                         </div>
                         <div class="modal-body text-black-50">
-                            <ul>
+                            <!--Table-->
+                            <table id="tablePreview" class="table">
+                                <!--Table head-->
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Producto</th>
+                                        <th>Precio Unitario</th>
+                                        <th>Cantidad</th>
+                                        <th>Total</th>
 
-                                <li>Productos: {{order.product_name}}</li>
-                                <li>Total: {{order.unit_price|currency}}</li>
+                                    </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody>
+                                    <tr *ngFor="let product of order; let i = index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>{{product.product}}</td>
+                                        <td>{{product.unit_price}}</td>
+                                        <td>{{product.quantity}}</td>
+                                        <td>{{product.total}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total: {{total|currency}}</th>
+                                        <th></th>
+                                    </tr>
 
-                            </ul>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                            <!--Table-->
                         </div>
 
                     </div>

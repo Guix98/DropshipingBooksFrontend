@@ -67,21 +67,13 @@ export class AdminContactsComponent  {
 
   }
   editprov(id:number, name: string, zone: string, street: string, email: string, phone: string, phone2: string){
-    this.clickedprov ={
-      id,
-      name,
-      zone,
-      street,
-      email,
-      phone,
-      phone2
-    }
+    
     console.log(this.clickedprov);
     
-    this.books.editProvider(this.clickedprov.id, this.clickedprov.name , this.clickedprov.zone , this.clickedprov.street , this.clickedprov.email , this.clickedprov.phone , this.clickedprov.phone2 ).subscribe((data:any)=>{
+    this.books.editProvider(this.clickedprov.id, name , zone , street , email ,  phone , phone2 ).subscribe((data:any)=>{
       console.log(data);
       
-      //this.router.navigate(['mainmenu']);
+      this.router.navigate(['mainmenu']);
     });
   }
   loadModal(id:number, name: string, zone: string, street: string, email: string, phone: string, phone2: string){

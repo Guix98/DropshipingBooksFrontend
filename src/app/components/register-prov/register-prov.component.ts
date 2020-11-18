@@ -16,8 +16,8 @@ export class RegisterProvComponent implements OnInit {
 
   }
   saveProv(name: string, zone: string, street: string, email: string, phone: string, phone2: string){
-    this.book.postNewProvider(name , zone , street , email , phone , phone2 ).subscribe((data:any)=>{
-      this.router.navigate(['contacts']);
+    this.book.postNewProvider(name , zone , street , email , phone , phone2 ).subscribe((data: any) => {
+      this.router.navigate(['mainmenu']);
     });
   }
 

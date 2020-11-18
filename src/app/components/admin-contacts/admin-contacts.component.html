@@ -37,7 +37,7 @@
                   > Editar
                   </label>
                     <label class="btn btn-danger">
-                  <input type="radio" name="options" id="option2" (click)="deleteprov(proveedor.provider_id)"> Eliminar
+                  <input type="radio" name="options" id="option2" (click)="deleteprov(proveedor.provider_id)" data-dismiss="modal"> Eliminar
                 </label>
 
                 </div>
@@ -118,7 +118,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-info" (click)="editprov(proveedor.provider_id, name.value,zone.value,street.value,email.value,phone.value,phone2.value)">Editar</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal" (click)="editprov(proveedor.provider_id, name.value,zone.value,street.value,email.value,phone.value,phone2.value)">Editar</button>
 
                         </div>
 

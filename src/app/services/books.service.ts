@@ -112,6 +112,15 @@ export class BooksService {
       return data;
     }));
   }
+  getDetailedOrder(token, id: number): Observable<any> {
+    const idx = id.toString();
+    console.log(idx);
+ 
+    const headers = new HttpHeaders().set('Authorization', token);
+ 
+ 
+    return this.http.post('http://localhost:8008/api/v1/order/carrito', {order: idx}, {  headers });
+   }
   getOneProvider(token, id: number): Observable<any> {
    const idx = id.toString;
    console.log(idx);
@@ -179,6 +188,7 @@ export class BooksService {
     const headers = new HttpHeaders();
     return this.http.post('http://localhost:8008/api/v1/provedor/edit', body, {  headers });
   }
+  
 
   //pagos
 
