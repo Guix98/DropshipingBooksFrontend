@@ -42,7 +42,7 @@ export class PaymentComponent implements OnInit {
   constructor(private fb: FormBuilder, private stripeService: StripeService, private books:BooksService) {}
  
   ngOnInit(): void {
-    this.stripeTest = this.fb.group({
+   this.stripeTest = this.fb.group({
       name: ['', [Validators.required]]
     });
   }
