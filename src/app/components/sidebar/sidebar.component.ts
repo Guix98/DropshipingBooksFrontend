@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../services/books.service';
 import { Router } from '@angular/router';
+import { GlobaldataService } from '../../services/globaldata.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 export class SidebarComponent {
 categories:any[];
   constructor(private book: BooksService,
-              private router: Router) { 
+              private router: Router,
+              public globaldata: GlobaldataService) { 
     this.book.getCategory(book.getToken()).subscribe((data: any) => {
       this.categories = data;
       console.log(this.categories);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../services/books.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { GlobaldataService } from '../../services/globaldata.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,11 @@ export class LoginComponent  {
   user = new User();
   token: string;
   constructor(private book: BooksService,
-              private router: Router) {
+              private router: Router,
+              public globaldata: GlobaldataService) {
     this.isLogin = true;
     this.alert = false;
+    this.globaldata.logged=false;
    }
    login(username: string, password: string){
      this.user.username = username;
@@ -27,6 +30,8 @@ export class LoginComponent  {
       if (respuesta.message === 'Authentication OK') {
        this.book.setauth(respuesta.authentication);
        this.book.setref(respuesta.refresh);
+       this.globaldata.logged=true;
+       
 
 
        this.router.navigate(['/home']);

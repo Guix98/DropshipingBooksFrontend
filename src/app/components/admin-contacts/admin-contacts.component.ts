@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService, Contact } from '../../services/books.service';
+import { Router } from '@angular/router';
+import { Provider } from '../../models/provider';
 
 @Component({
   selector: 'app-admin-contacts',
@@ -10,14 +12,26 @@ export class AdminContactsComponent  {
   providers: Contact[];
   providersAux: Contact[];
   providersArr: Contact[] = [];
+  clickedprov:Provider;
 
 
 
-  constructor(private books: BooksService) {
+  constructor(private books: BooksService,
+              private router: Router) {
+                this.clickedprov ={
+                  id: 0,
+                  name: "",
+                  zone: "",
+                  street: "",
+                  email: "",
+                  phone: "",
+                  phone2: ""
+                }
       this.books.getProviders(this.books.getToken()).subscribe((data: any) => {
         this.providers = data;
         console.log(this.providers.length);
         this.providersAux = data;
+
 
       });
   }
@@ -44,6 +58,46 @@ export class AdminContactsComponent  {
     this.providers = this.providersArr;
     this.providersArr = [];
   }
+  deleteprov(provider_id:string){
+    this.books.DeleteProvider(provider_id).subscribe((data:any)=>{
+        console.log(data);
+        this.router.navigate(['mainmenu']);
+        
+    })
+
+  }
+  editprov(id:number, name: string, zone: string, street: string, email: string, phone: string, phone2: string){
+    this.clickedprov ={
+      id,
+      name,
+      zone,
+      street,
+      email,
+      phone,
+      phone2
+    }
+    console.log(this.clickedprov);
+    
+    this.books.editProvider(this.clickedprov.id, this.clickedprov.name , this.clickedprov.zone , this.clickedprov.street , this.clickedprov.email , this.clickedprov.phone , this.clickedprov.phone2 ).subscribe((data:any)=>{
+      console.log(data);
+      
+      //this.router.navigate(['mainmenu']);
+    });
+  }
+  loadModal(id:number, name: string, zone: string, street: string, email: string, phone: string, phone2: string){
+    this.clickedprov ={
+      id,
+      name,
+      zone,
+      street,
+      email,
+      phone,
+      phone2
+    }
+    
+    
+  }
+
 
 
 

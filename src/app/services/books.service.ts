@@ -91,9 +91,7 @@ export class BooksService {
     }));
   }
   getCategory(token: string){
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    }).set('Authorization', token);
+    const headers = new HttpHeaders();
     return this.http.get(this.localurl + 'category', {headers}).pipe(map((data: any) => {
       return data;
     }));
@@ -160,6 +158,29 @@ export class BooksService {
 
     return this.http.post('http://localhost:8008/api/v1/registerprovider', body, {  headers });
   }
+  DeleteProvider(id:string): Observable<any> {
+
+
+    const headers = new HttpHeaders();
+    return this.http.post('http://localhost:8008/api/v1/deleteprovider', {orderName: id}, {  headers });
+  }
+  editProvider(id:number, name: string, zone: string, street: string, email: string, phone: string, phone2: string): Observable<any> {
+    
+    const body = {
+      "provider_id": id,
+      'provider_name' : name,
+      'provider_zone' : zone,
+      'provider_street' : street,
+      'email' : email,
+      'phone' : phone,
+      'phone2' : phone2,
+  };
+
+    const headers = new HttpHeaders();
+    return this.http.post('http://localhost:8008/api/v1/provedor/edit', body, {  headers });
+  }
+
+  //pagos
 
   pagar(payment:PaymentIntent):Observable<String>{
     const headers = new HttpHeaders();
@@ -175,6 +196,8 @@ export class BooksService {
   }
 
   }
+
+
 
 export interface Contact{
         'provider_id': number;

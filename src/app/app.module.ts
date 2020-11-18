@@ -58,7 +58,7 @@ import { CartComponent } from './components/cart/cart.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule,
+    //ReactiveFormsModule,
     NgxStripeModule.forRoot('pk_test_51HjuyILFhqp9lDfLFMHIeUJMfUJIpBEfNLuwCXdBXyJFk2LefZL8ZCL7ruojN3UNF19wnVdrIjAHVHMDZ2EajE2100aP7FxArg'),
     RouterModule.forRoot(ROUTES, {useHash: true, onSameUrlNavigation: 'reload', })
   ],

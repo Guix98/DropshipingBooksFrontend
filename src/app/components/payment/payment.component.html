@@ -10,7 +10,7 @@
 </app-cart>
 <hr>
 <h1>Total: {{total|currency}}</h1>
-<form novalidate [formGroup]="stripeTest">
+<form novalidate>
     <input type="text" formControlName="name" placeholder="Jane Doe">
     <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
     <button class="btn-outline-success" type="button" (click)="createToken()" data-toggle="modal" data-target="#staticBackdrop">
